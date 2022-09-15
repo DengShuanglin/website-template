@@ -15,23 +15,23 @@ const clean = require("gulp-clean");
 // Paths
 var paths = {
   root: {
-    www: "./public",
+    www: "./public_html",
   },
   src: {
-    root: "public/assets",
-    html: "public/**/*.html",
-    css: "public/assets/css/*.css",
-    js: "public/assets/js/*.js",
-    vendors: "public/assets/vendors/**/*.*",
-    imgs: "public/assets/imgs/**/*.+(png|jpg|gif|svg)",
-    scss: "public/assets/scss/**/*.scss",
+    root: "public_html/assets",
+    html: "public_html/**/*.html",
+    css: "public_html/assets/css/*.css",
+    js: "public_html/assets/js/*.js",
+    vendors: "public_html/assets/vendors/**/*.*",
+    imgs: "public_html/assets/imgs/**/*.+(png|jpg|gif|svg)",
+    scss: "public_html/assets/scss/**/*.scss",
   },
   dist: {
-    root: "public/dist",
-    css: "public/dist/css",
-    js: "public/dist/js",
-    imgs: "public/dist/imgs",
-    vendors: "public/dist/vendors",
+    root: "public_html/dist",
+    css: "public_html/dist/css",
+    js: "public_html/dist/js",
+    imgs: "public_html/dist/imgs",
+    vendors: "public_html/dist/vendors",
   },
 };
 
@@ -60,7 +60,7 @@ gulp.task("js", function () {
   return gulp
     .src(paths.src.js)
     .pipe(uglify())
-    .pipe(concat("Ollie.js"))
+    .pipe(concat("ollie.js"))
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest(paths.dist.js))
     .pipe(browserSync.stream());
